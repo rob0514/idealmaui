@@ -1,5 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+import { c as createAstro, a as createComponent, r as renderTemplate, b as addAttribute, d as renderHead, e as renderSlot, f as renderComponent, m as maybeRenderHead } from '../astro.f8e4dcaa.mjs';
+import 'html-escaper';
+import 'cookie';
+import 'kleur/colors';
+import '@astrojs/internal-helpers/path';
+import 'path-to-regexp';
+import 'mime';
+import 'string-width';
+
+const $$Astro$1 = createAstro();
+const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  Astro2.self = $$Layout;
+  const { title } = Astro2.props;
+  return renderTemplate`<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="description" content="Astro description">
@@ -7,13 +20,21 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../src/styles/global.css">
-		<meta name="generator" content="Astro v2.7.1">
-		<title>Welcome to Astro.</title>
-	</head>
+		<meta name="generator"${addAttribute(Astro2.generator, "content")}>
+		<title>${title}</title>
+	${renderHead($$result)}</head>
 	<body>
-		
+		${renderSlot($$result, $$slots["default"])}
+	</body></html>`;
+}, "C:/Users/robda/wstorm/idealmaui/src/layouts/Layout.astro");
+
+const $$Astro = createAstro();
+const $$Index = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Index;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Welcome to Astro." }, { "default": ($$result2) => renderTemplate`
 	
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+${maybeRenderHead($$result2)}<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
 	<div class="relative py-3 sm:max-w-xl sm:mx-auto">
 		<div class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
 		</div>
@@ -42,5 +63,10 @@
 		</div>
 	</div>
 </div>
+` })}`;
+}, "C:/Users/robda/wstorm/idealmaui/src/pages/index.astro");
 
-	</body></html>
+const $$file = "C:/Users/robda/wstorm/idealmaui/src/pages/index.astro";
+const $$url = "";
+
+export { $$Index as default, $$file as file, $$url as url };
