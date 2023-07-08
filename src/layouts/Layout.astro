@@ -14,6 +14,28 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
+
+const errors = { username: "", email: "", password: "" };
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username");
+    const email = data.get("email");
+    const password = data.get("password");
+    if (typeof email !== "string" ) {
+      errors.email += "Email is not valid. ";
+    } 
+    if (typeof password !== "string" || password.length < 6) {
+      errors.password += "Password must be at least 6 characters. ";
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
 ---
 
 <!DOCTYPE html>
@@ -361,7 +383,7 @@ const { title } = Astro.props;
 				<!-- Reply Messages End-->
 	
 				<!-- Contact Form Start -->
-				<form class="form form-light sayhello-form" id="sayhello-form" data-np-autofill-type="other" data-np-checked="1" data-np-watching="1">
+				<form method="post" class="form form-light sayhello-form" id="sayhello-form" data-np-autofill-type="other" data-np-checked="1" data-np-watching="1">
 				  <!-- Hidden Required Fields -->
 				  <input type="hidden" name="project_name" value="Ignite - Coming Soon and Landing Page Template">
 				  <input type="hidden" name="admin_email" value="support@mixdesign.club">

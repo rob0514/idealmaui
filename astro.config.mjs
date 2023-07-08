@@ -8,6 +8,6 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
   })],
-  output: "hybrid",
+  output: "server",
   adapter: netlify()
 });
