@@ -8,6 +8,10 @@ module.exports = {
 			fontFamily: {
 				'poppins': ['Poppins', 'sans-serif']
 			  },
+			  backgroundImage:{
+				'hero': "url('../images/floraTeal.jpg')"
+		
+			  }
 		},
 	},
 	plugins: [
