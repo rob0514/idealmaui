@@ -2213,7 +2213,7 @@ form input.margin-l, form textarea.margin-l {
   background-position: bottom center;
   -moz-background-size: 150%;
        background-size: 150%;
-  background-image: url("../img/backgrounds/1920x280-bg-menu.webp");
+  /*background-image: url("../img/backgrounds/1920x280-bg-menu.webp");*/
 }
 @media only screen and (min-width: 1200px) {
   .nav__background {
